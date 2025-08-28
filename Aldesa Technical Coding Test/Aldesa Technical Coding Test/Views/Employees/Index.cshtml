@@ -1,0 +1,386 @@
+﻿@{
+    ViewData["Title"] = "Employees";
+}
+
+<div class="w-full mx-auto p-6 bg-white rounded-xl shadow-md">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold">Employees</h2>
+
+        <!-- Add Employee Button -->
+        <button id="openModalBtn"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow transition">
+            Add Employee
+        </button>
+    </div>
+
+    <!-- Department Filter -->
+    <div class="mb-4">
+        <label for="departmentFilter" class="block text-sm font-medium text-gray-700 mb-1">
+            Filter by Department
+        </label>
+        <select id="departmentFilter"
+                class="w-64 rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 px-2.5 py-2">
+            <option value="">All Departments</option>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+        </select>
+    </div>
+
+
+    <!-- Employee Table -->
+    <div class="overflow-x-auto">
+        <table id="employeeTable" class="min-w-full border border-gray-200 rounded-lg shadow-sm">
+            <thead class="bg-blue-600 text-white">
+                <tr>
+                    <th class="px-4 py-2 text-left text-sm font-semibold">ID</th>
+                    <th class="px-4 py-2 text-left text-sm font-semibold">First Name</th>
+                    <th class="px-4 py-2 text-left text-sm font-semibold">Last Name</th>
+                    <th class="px-4 py-2 text-left text-sm font-semibold">Department</th>
+                    <th class="px-4 py-2 text-left text-sm font-semibold">Salary</th>
+                    <th class="px-4 py-2 text-center text-sm font-semibold">Action</th>
+
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white"></tbody>
+        </table>
+        <div class="flex justify-between items-center mt-4">
+            <span id="paginationInfo" class="text-sm font-medium"></span>
+            <div>
+                <button id="prevPageBtn" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Previous</button>
+                <button id="nextPageBtn" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="AddEmployeeModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold" id="ModalTitle">Add Employee</h3>
+            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+        </div>
+
+        <!-- Employee Form -->
+        <form id="AddEmployeeForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium">First Name</label>
+                <input type="text" id="firstName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Last Name</label>
+                <input type="text" id="lastName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Department</label>
+                <select id="AddDepartment" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Salary</label>
+                <input type="number" step="0.01" id="salary" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="cancelBtn" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="EditEmployeeModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold" id="EditModalTitle">Edit Employee</h3>
+            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+        </div>
+
+        <!-- Employee Form -->
+        <form id="EditEmployeeForm" class="space-y-4">
+            <input type="number" name="employee_id" id="EditEmployeeId" value="" class="hidden"/>
+            <div>
+                <label class="block text-sm font-medium">First Name</label>
+                <input type="text" id="EditfirstName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Last Name</label>
+                <input type="text" id="EditlastName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Department</label>
+                <select id="EditDepartment" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Salary</label>
+                <input type="number" step="0.01" id="Editsalary" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="cancelBtn" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+@section Scripts {
+    <script>
+        $(function() {
+            let currentPage = 1;
+            const pageSize = 5; // employees per page
+            let totalPages = 1;
+
+            // Render Employees
+            function renderEmployees(data) {
+                const tbody = $('#employeeTable tbody');
+                tbody.empty();
+
+                    if (!data || data.length === 0) {
+                        const noDataRow = `
+                            <tr>
+                                <td colspan="6" class="text-center px-4 py-2 text-gray-500">
+                                    No employees found.
+                                </td>
+                            </tr>
+                        `;
+                        tbody.append(noDataRow);
+                        $('#paginationInfo').text(`Page ${currentPage} of ${totalPages}`);
+                        $('#prevPageBtn').prop('disabled', true);
+                        $('#nextPageBtn').prop('disabled', true);
+                        return;
+                    }
+
+                $.each(data, function(_, employee) {
+                    const row = `
+                        <tr class="hover:bg-gray-100 transition">
+                            <td class="px-4 py-2">${employee.id}</td>
+                            <td class="px-4 py-2">${employee.firstName}</td>
+                            <td class="px-4 py-2">${employee.lastName}</td>
+                            <td class="px-4 py-2">${employee.departmentName}</td>
+                            <td class="px-4 py-2">$${employee.salary}</td>
+                            <td class="px-4 py-2 flex justify-center space-x-2">
+                                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-blue-600 edit-btn" data-id="${employee.id}">Edit</button>
+                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 delete-btn" data-id="${employee.id}">Delete</button>
+                            </td>
+                        </tr>`;
+                    tbody.append(row);
+                });
+
+                $('#paginationInfo').text(`Page ${currentPage} of ${totalPages}`);
+                $('#prevPageBtn').prop('disabled', currentPage <= 1);
+                $('#nextPageBtn').prop('disabled', currentPage >= totalPages);
+            }
+
+            // Load Employees (paginated)
+            function loadEmployees(page = 1) {
+                const departmentId = $('#departmentFilter').val();
+                let url = `/api/employees?pageNumber=${page}&pageSize=${pageSize}`;
+                if (departmentId) url += `&departmentId=${departmentId}`;
+
+                $.getJSON(url, function(response) {
+                    currentPage = response.pageNumber;
+                    totalPages = response.totalPages;
+                    renderEmployees(response.data);
+                });
+            }
+
+            function loadEmployeesByDepartment(department, page = 1) {
+                $.getJSON(`/api/employees/by-department?department=${department}&pageNumber=${page}&pageSize=${pageSize}`, function(response) {
+
+                    // Update pagination info
+                    $('#paginationInfo').text(`Page ${response.pageNumber} of ${response.totalPages}`);
+
+                    // Enable/disable buttons
+                    $('#prevPageBtn').prop('disabled', response.pageNumber <= 1);
+                    $('#nextPageBtn').prop('disabled', response.pageNumber >= response.totalPages);
+
+                    currentPage = response.pageNumber;
+                    totalPages = response.totalPages;
+                    renderEmployees(response.data);
+                });
+            }
+
+            // Department filter change
+            $('#departmentFilter').change(function() {
+                const department = $(this).val();
+                currentPage = 1;
+                if (department) {
+                    loadEmployeesByDepartment(department, currentPage);
+                } else {
+                    loadEmployees(); // fallback to all employees without department filter
+                }
+            });
+
+            // Pagination buttons
+            $('#prevPageBtn').click(function() {
+                const department = $('#departmentFilter').val();
+                if (department && currentPage > 1) {
+                    loadEmployeesByDepartment(department, currentPage - 1);
+                }else{
+                    loadEmployees(currentPage - 1);
+                }
+            });
+
+            $('#nextPageBtn').click(function() {
+                const department = $('#departmentFilter').val();
+                if (department) {
+                    loadEmployeesByDepartment(department, currentPage + 1);
+                }else{
+                    loadEmployees(currentPage + 1);
+                }
+            });
+
+            // Load Departments into a select
+            function loadDepartmentsIntoSelect(selectId, selectedId = null) {
+                $.getJSON('/api/departments', function(departments) {
+                    const $select = $('#' + selectId);
+                    $select.empty();
+                    $select.append('<option value="">Select Department</option>');
+                    $.each(departments, function(_, dep) {
+                        const $option = $('<option>').val(dep.id).text(dep.name);
+                        if (selectedId && dep.id === selectedId) $option.prop('selected', true);
+                        $select.append($option);
+                    });
+                });
+            }
+
+            // Add Employee Modal
+            $('#openModalBtn').click(function() {
+                $('#AddEmployeeForm')[0].reset();
+                loadDepartmentsIntoSelect('AddDepartment');
+                $('#AddEmployeeModal').removeClass('hidden').addClass('flex');
+            });
+
+            // Close modals
+            function closeModal($modal) {
+                $modal.addClass('hidden').removeClass('flex');
+            }
+            $('#AddEmployeeModal, #EditEmployeeModal').on('click', function(e) {
+                if ($(e.target).is(this)) closeModal($(this));
+            });
+            $('#AddEmployeeModal #cancelBtn, #AddEmployeeModal #closeModalBtn').click(function() {
+                closeModal($('#AddEmployeeModal'));
+            });
+            $('#EditEmployeeModal #cancelBtn, #EditEmployeeModal #closeModalBtn').click(function() {
+                closeModal($('#EditEmployeeModal'));
+            });
+
+            // Add Employee Form Submit
+            const $addForm = $('#AddEmployeeForm');
+            const $addError = $('<div class="text-red-500 text-sm mb-2"></div>').prependTo($addForm);
+
+            $addForm.submit(function(e) {
+                e.preventDefault();
+                $addError.empty();
+
+                const employeeData = {
+                    firstName: $('#firstName').val().trim(),
+                    lastName: $('#lastName').val().trim(),
+                    departmentId: parseInt($('#AddDepartment').val()),
+                    salary: parseFloat($('#salary').val())
+                };
+
+                const errors = [];
+                if (!employeeData.firstName) errors.push('First Name is required.');
+                if (!employeeData.lastName) errors.push('Last Name is required.');
+                if (!employeeData.departmentId) errors.push('Please select a Department.');
+                if (isNaN(employeeData.salary)) errors.push('Salary must be a number.');
+                if (errors.length) { $addError.html(errors.join('<br>')); return; }
+
+                $.ajax({
+                    url: '/api/employees/add',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(employeeData),
+                    success: function() {
+                        $addForm[0].reset();
+                        closeModal($('#AddEmployeeModal'));
+                        loadEmployees(currentPage); // refresh current page
+                    },
+                    error: function(xhr) {
+                        const errorData = xhr.responseJSON;
+                        if (errorData.errors) $addError.html(errorData.errors.join('<br>'));
+                        else if (errorData.message) $addError.html(errorData.message);
+                        else $addError.html('An unknown error occurred.');
+                    }
+                });
+            });
+
+            // Edit Employee
+            $(document).on('click', '.edit-btn', function() {
+                const id = $(this).data('id');
+                const $modal = $('#EditEmployeeModal');
+
+                $.getJSON(`/api/employees/${id}`, function(employee) {
+                    $('#EditEmployeeId').val(employee.id);
+                    $('#EditfirstName').val(employee.firstName);
+                    $('#EditlastName').val(employee.lastName);
+                    $('#Editsalary').val(employee.salary);
+                    loadDepartmentsIntoSelect('EditDepartment', employee.departmentId);
+                    $modal.removeClass('hidden').addClass('flex');
+                });
+            });
+
+            // Edit Employee Submit
+            const $editForm = $('#EditEmployeeForm');
+            const $editError = $('<div class="text-red-500 text-sm mb-2"></div>').prependTo($editForm);
+
+            $editForm.submit(function(e) {
+                e.preventDefault();
+                $editError.empty();
+
+                const id = $('#EditEmployeeId').val();
+                const employeeData = {
+                    id: id,
+                    firstName: $('#EditfirstName').val().trim(),
+                    lastName: $('#EditlastName').val().trim(),
+                    departmentId: parseInt($('#EditDepartment').val()),
+                    salary: parseFloat($('#Editsalary').val())
+                };
+
+                const errors = [];
+                if (!employeeData.firstName) errors.push('First Name is required.');
+                if (!employeeData.lastName) errors.push('Last Name is required.');
+                if (!employeeData.departmentId) errors.push('Please select a Department.');
+                if (isNaN(employeeData.salary)) errors.push('Salary must be a number.');
+                if (errors.length) { $editError.html(errors.join('<br>')); return; }
+
+                $.ajax({
+                    url: `/api/employees/edit/${id}`,
+                    method: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(employeeData),
+                    success: function() {
+                        closeModal($('#EditEmployeeModal'));
+                        loadEmployees(currentPage); // refresh current page
+                    },
+                    error: function(xhr) {
+                        const errorData = xhr.responseJSON;
+                        if (errorData.errors) $editError.html(errorData.errors.join('<br>'));
+                        else if (errorData.message) $editError.html(errorData.message);
+                        else $editError.html('An unknown error occurred.');
+                    }
+                });
+            });
+
+            // Delete Employee
+            $(document).on('click', '.delete-btn', function() {
+                if (!confirm('Are you sure you want to delete this employee?')) return;
+                const id = $(this).data('id');
+                $.ajax({
+                    url: `/api/employees/delete/${id}`,
+                    method: 'DELETE',
+                    success: function() { loadEmployees(currentPage); },
+                    error: function() { alert('Failed to delete employee.'); }
+                });
+            });
+
+            // Initial load
+            loadEmployees();
+            loadDepartmentsIntoSelect('departmentFilter');
+            $('#departmentFilter').val(null)
+        });
+    </script>
+}
+

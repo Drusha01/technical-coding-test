@@ -1,0 +1,9 @@
+Hi, Make sure all dependencies packages are included. 
+
+for the database, i modified it slightly to accommodate reference base and joining. you can found it in the this zip file or solutions folder named "db.sql".
+
+this has paginations simple joins and assumes that department table as has a head defaulted to null. 
+
+as I have not yet finish the department module I just manually insert the departments table to accommodate it in the application. 
+
+that's all thank you.

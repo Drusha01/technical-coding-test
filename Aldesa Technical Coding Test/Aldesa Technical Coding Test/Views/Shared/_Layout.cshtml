@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Employee Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" ></script>
+  
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <h1 class="text-2xl font-bold">Employee Management</h1>
+            <nav class="space-x-4">
+                <a href="/" class="hover:text-gray-200 transition">Home</a>
+                <a href="/Employees" class="hover:text-gray-200 transition">Employees</a>
+                <a href="/Employees" class="hover:text-gray-200 transition">Departments</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" class="flex-grow container mx-auto bg-white shadow rounded-lg mt-6">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 mt-8">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; @DateTime.Now.Year - Employee Management</p>
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
