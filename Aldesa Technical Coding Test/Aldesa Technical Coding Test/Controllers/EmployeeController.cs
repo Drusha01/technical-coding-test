@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Aldesa_Technical_Coding_Test.Data;
 using Aldesa_Technical_Coding_Test.Models;
@@ -20,6 +22,14 @@ namespace Aldesa_Technical_Coding_Test.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        // API Endpoint: /api/employees/all
+        [HttpGet]
+        [Route("/api/employees/all")]
+        public async Task<ActionResult<IEnumerable<EmployeesModel>>> GetDepartments()
+        {
+            return await _context.Employees.ToListAsync();
         }
 
         // API Endpoint: /api/employees
@@ -161,8 +171,22 @@ namespace Aldesa_Technical_Coding_Test.Controllers
                 return BadRequest(new { errors }); // return validation errors as JSON
 
             // Save employee
-            _context.Employees.Add(employee);
-            await _context.SaveChangesAsync();
+            using (var conn = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                await conn.OpenAsync();
+                using (var cmd = new SqlCommand("InsertEmployee", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", employee.LastName);
+                    cmd.Parameters.AddWithValue("@DepartmentId", employee.DepartmentId);
+                    cmd.Parameters.AddWithValue("@Salary", employee.Salary);
+
+                    var result = await cmd.ExecuteScalarAsync();
+                    employee.Id = Convert.ToInt32(result);
+                }
+            }
+
 
             return Ok(employee); // return the created employee
         }
@@ -204,15 +228,28 @@ namespace Aldesa_Technical_Coding_Test.Controllers
                 return NotFound(new { errors = new[] { "Employee not found." } });
 
             // Update properties
-            employee.FirstName = updatedEmployee.FirstName;
-            employee.LastName = updatedEmployee.LastName;
-            employee.DepartmentId = updatedEmployee.DepartmentId;
-            employee.Salary = updatedEmployee.Salary;
+            using (var conn = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand("UpdateEmployee", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            _context.Employees.Update(employee);
-            await _context.SaveChangesAsync();
+                    cmd.Parameters.AddWithValue("@EmployeeId", updatedEmployee.Id);
+                    cmd.Parameters.AddWithValue("@FirstName", updatedEmployee.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", updatedEmployee.LastName);
+                    cmd.Parameters.AddWithValue("@DepartmentId", updatedEmployee.DepartmentId);
+                    cmd.Parameters.AddWithValue("@Salary", updatedEmployee.Salary);
 
-            return Ok(employee);
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception($"No employee found with Id = {updatedEmployee.Id}");
+                    }
+                }
+            }
+            return Ok(updatedEmployee);
         }
 
 
@@ -221,16 +258,27 @@ namespace Aldesa_Technical_Coding_Test.Controllers
         [Route("/api/employees/delete/{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
-            var employee = await _context.Employees.FindAsync(id);
-            if (employee == null)
-                return NotFound(new { errors = new[] { "Employee not found." } });
+            int rowsAffected = 0;
 
-            _context.Employees.Remove(employee);
-            await _context.SaveChangesAsync();
+            using (var conn = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                await conn.OpenAsync();
+
+                using (SqlCommand cmd = new SqlCommand("DeleteEmployee", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@EmployeeId", id);
+
+                    // Execute stored procedure
+                    var result = await cmd.ExecuteScalarAsync();
+                    if (result != null)
+                        rowsAffected = Convert.ToInt32(result);
+                }
+            }
+            if (rowsAffected == 0)
+                return NotFound(new { errors = new[] { "Employee not found." } });
 
             return Ok(new { message = "Employee deleted successfully." });
         }
-
-
     }
 }

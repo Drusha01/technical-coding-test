@@ -2,7 +2,7 @@
     ViewData["Title"] = "Employees";
 }
 
-<div class="w-full mx-auto p-6 bg-white rounded-xl shadow-md">
+<div class="w-full mx-auto p-6 bg-white rounded-xl">
     <div class="flex justify-between items-center mb-4">
         <h2 class="text-2xl font-bold">Employees</h2>
 
@@ -14,17 +14,28 @@
     </div>
 
     <!-- Department Filter -->
-    <div class="mb-4">
-        <label for="departmentFilter" class="block text-sm font-medium text-gray-700 mb-1">
-            Filter by Department
-        </label>
-        <select id="departmentFilter"
-                class="w-64 rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 px-2.5 py-2">
-            <option value="">All Departments</option>
-            <option value="HR">HR</option>
-            <option value="IT">IT</option>
-            <option value="Finance">Finance</option>
-        </select>
+    <div class="flex flex-col lg:flex-row gap-3">
+        <div class="mb-4">
+            <label for="departmentFilter" class="block text-sm font-medium text-gray-700 mb-1">
+                Filter by Department
+            </label>
+            <select id="departmentFilter"
+                    class="w-64 rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 px-2.5 py-2">
+                <option value="">All Departments</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="departmentFilter" class="block text-sm font-medium text-gray-700 mb-1">
+                Rows
+            </label>
+            <select id="paginationRows"
+                    class="w-40 rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 px-2.5 py-2">
+                <option value="5">5</option>
+                <option selected value="10">10</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+            </select>
+        </div>
     </div>
 
 
@@ -47,8 +58,8 @@
         <div class="flex justify-between items-center mt-4">
             <span id="paginationInfo" class="text-sm font-medium"></span>
             <div>
-                <button id="prevPageBtn" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Previous</button>
-                <button id="nextPageBtn" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Next</button>
+                <button id="prevPageBtn" class="px-4 py-2 bg-gray-50 rounded hover:bg-gray-100 disabled:bg-gray-400 disabled:text-white disabled:border-0 border border-black">Previous</button>
+                <button id="nextPageBtn" class="px-4 py-2 bg-gray-50 rounded hover:bg-gray-100 disabled:bg-gray-400 disabled:text-white disabled:border-0 border border-black">Next</button>
             </div>
         </div>
     </div>
@@ -58,26 +69,28 @@
     <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
         <div class="flex justify-between items-center mb-4">
             <h3 class="text-xl font-bold" id="ModalTitle">Add Employee</h3>
-            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 border-none hover:border hover:border-1 hover:border-gray-800 p-2 rounded-1">
+                <svg viewBox="0 0 24 24" width="20px" height="20px" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 8L8 16M8 8L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path> </g></svg>
+            </button>
         </div>
 
         <!-- Employee Form -->
         <form id="AddEmployeeForm" class="space-y-4">
             <div>
-                <label class="block text-sm font-medium">First Name</label>
+                <label class="block text-sm font-medium">First Name <span class="text-red-800">*</span></label>
                 <input type="text" id="firstName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
             </div>
             <div>
-                <label class="block text-sm font-medium">Last Name</label>
+                <label class="block text-sm font-medium">Last Name <span class="text-red-800">*</span></label>
                 <input type="text" id="lastName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
             </div>
             <div>
-                <label class="block text-sm font-medium">Department</label>
+                <label class="block text-sm font-medium">Department <span class="text-red-800">*</span></label>
                 <select id="AddDepartment" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium">Salary</label>
+                <label class="block text-sm font-medium">Salary <span class="text-red-800">*</span></label>
                 <input type="number" step="0.01" id="salary" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
             </div>
             <div class="flex justify-end space-x-2">
@@ -92,27 +105,29 @@
     <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
         <div class="flex justify-between items-center mb-4">
             <h3 class="text-xl font-bold" id="EditModalTitle">Edit Employee</h3>
-            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 border-none hover:border hover:border-1 hover:border-gray-800 p-2 rounded-1">
+                <svg viewBox="0 0 24 24" width="20px" height="20px" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 8L8 16M8 8L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path> </g></svg>
+            </button>
         </div>
 
         <!-- Employee Form -->
         <form id="EditEmployeeForm" class="space-y-4">
             <input type="number" name="employee_id" id="EditEmployeeId" value="" class="hidden"/>
             <div>
-                <label class="block text-sm font-medium">First Name</label>
+                <label class="block text-sm font-medium">First Name <span class="text-red-800">*</span></label>
                 <input type="text" id="EditfirstName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
             </div>
             <div>
-                <label class="block text-sm font-medium">Last Name</label>
+                <label class="block text-sm font-medium">Last Name <span class="text-red-800">*</span></label>
                 <input type="text" id="EditlastName" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
             </div>
             <div>
-                <label class="block text-sm font-medium">Department</label>
+                <label class="block text-sm font-medium">Department <span class="text-red-800">*</span></label>
                 <select id="EditDepartment" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium">Salary</label>
+                <label class="block text-sm font-medium">Salary <span class="text-red-800">*</span></label>
                 <input type="number" step="0.01" id="Editsalary" class="w-full border rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required />
             </div>
             <div class="flex justify-end space-x-2">
@@ -128,7 +143,7 @@
     <script>
         $(function() {
             let currentPage = 1;
-            const pageSize = 5; // employees per page
+            let pageSize = 10; // employees per page
             let totalPages = 1;
 
             // Render Employees
@@ -160,7 +175,7 @@
                             <td class="px-4 py-2">${employee.departmentName}</td>
                             <td class="px-4 py-2">$${employee.salary}</td>
                             <td class="px-4 py-2 flex justify-center space-x-2">
-                                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-blue-600 edit-btn" data-id="${employee.id}">Edit</button>
+                                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 edit-btn " data-id="${employee.id}">Edit</button>
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 delete-btn" data-id="${employee.id}">Delete</button>
                             </td>
                         </tr>`;
@@ -174,6 +189,9 @@
 
             // Load Employees (paginated)
             function loadEmployees(page = 1) {
+                if($('#paginationRows').val()){
+                    pageSize = $('#paginationRows').val();
+                }
                 const departmentId = $('#departmentFilter').val();
                 let url = `/api/employees?pageNumber=${page}&pageSize=${pageSize}`;
                 if (departmentId) url += `&departmentId=${departmentId}`;
@@ -186,6 +204,9 @@
             }
 
             function loadEmployeesByDepartment(department, page = 1) {
+                if($('#paginationRows').val()){
+                    pageSize = $('#paginationRows').val();
+                }
                 $.getJSON(`/api/employees/by-department?department=${department}&pageNumber=${page}&pageSize=${pageSize}`, function(response) {
 
                     // Update pagination info
@@ -204,6 +225,15 @@
             // Department filter change
             $('#departmentFilter').change(function() {
                 const department = $(this).val();
+                currentPage = 1;
+                if (department) {
+                    loadEmployeesByDepartment(department, currentPage);
+                } else {
+                    loadEmployees(); // fallback to all employees without department filter
+                }
+            });
+            $('#paginationRows').change(function() {
+                const department = $('#departmentFilter').val();
                 currentPage = 1;
                 if (department) {
                     loadEmployeesByDepartment(department, currentPage);
@@ -233,7 +263,7 @@
 
             // Load Departments into a select
             function loadDepartmentsIntoSelect(selectId, selectedId = null) {
-                $.getJSON('/api/departments', function(departments) {
+                $.getJSON('/api/departments/all', function(departments) {
                     const $select = $('#' + selectId);
                     $select.empty();
                     $select.append('<option value="">Select Department</option>');

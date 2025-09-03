@@ -44,3 +44,114 @@ CREATE TABLE Employees (
         ON DELETE SET NULL
 );
 GO
+
+
+CREATE PROCEDURE InsertEmployee
+    @FirstName NVARCHAR(50),
+    @LastName NVARCHAR(50),
+    @DepartmentId INT,
+    @Salary DECIMAL(10,2)
+AS
+BEGIN
+    INSERT INTO Employees (FirstName, LastName, DepartmentId, Salary)
+    VALUES (@FirstName, @LastName, @DepartmentId, @Salary);
+    SELECT SCOPE_IDENTITY() AS NewId;
+END
+
+GO
+
+CREATE PROCEDURE UpdateEmployee
+    @EmployeeId INT,
+    @FirstName NVARCHAR(50),
+    @LastName NVARCHAR(50),
+    @DepartmentId INT,
+    @Salary DECIMAL(18,2)
+AS
+BEGIN
+    SET NOCOUNT ON;  
+    UPDATE Employees
+    SET FirstName = @FirstName,
+        LastName = @LastName,
+        DepartmentId = @DepartmentId,
+        Salary = @Salary
+    WHERE Id = @EmployeeId;
+END
+
+GO
+
+CREATE PROCEDURE DeleteEmployee
+    @EmployeeId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM Employees
+    WHERE Id = @EmployeeId;
+
+    -- return number of rows affected
+    SELECT @@ROWCOUNT AS RowsAffected;
+END
+GO
+
+
+CREATE PROCEDURE InsertDepartment
+    @Name NVARCHAR(100),
+    @Code NVARCHAR(50),
+    @HeadId INT = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Departments (Name, Code, HeadId)
+    VALUES (@Name, @Code, @HeadId);
+
+    -- return new ID
+    SELECT SCOPE_IDENTITY() AS NewId;
+END
+GO
+
+CREATE PROCEDURE UpdateDepartment
+    @Id INT,
+    @Name NVARCHAR(100),
+    @Code NVARCHAR(50),
+    @HeadId INT = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE Departments
+    SET Name = @Name,
+        Code = @Code,
+        HeadId = @HeadId
+    WHERE Id = @Id;
+
+    -- return updated row
+    SELECT Id, Name, Code, HeadId
+    FROM Departments
+    WHERE Id = @Id;
+END
+GO
+
+CREATE PROCEDURE DeleteDepartment
+    @Id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM Departments
+    WHERE Id = @Id;
+
+    -- tell how many rows were deleted
+    SELECT @@ROWCOUNT AS RowsAffected;
+END
+GO
+
+
+
+
+
+
+
+
+
+
