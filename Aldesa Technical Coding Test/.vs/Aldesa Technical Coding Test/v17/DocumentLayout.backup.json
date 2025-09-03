@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\views\\departments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -82,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -116,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EmployeeController.cs",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\Controllers\\EmployeeController.cs",
@@ -129,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\Views\\Employees\\Index.cshtml",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\Views\\Employees\\Index.cshtml",
@@ -142,13 +142,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Aldesa Technical Coding Test\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-28T01:21:26.032Z",
               "EditorCaption": ""
@@ -168,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DepartmentsController.cs",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\Controllers\\DepartmentsController.cs",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\Controllers\\DepartmentsController.cs",
@@ -181,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "db.sql ",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\db.sql",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\db.sql",

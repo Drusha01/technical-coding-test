@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|solutionrelative:aldesa technical coding test\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D086956-A5D0-47B7-9F54-BB5B76E790FB}|Aldesa Technical Coding Test\\Aldesa Technical Coding Test.csproj|c:\\users\\acer nitro\\source\\technical-coding-test\\aldesa technical coding test\\aldesa technical coding test\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,8 +98,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Views\\Departments\\Index.cshtml",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAF8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-02T23:48:14.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T23:48:14.343Z"
             },
             {
               "$type": "Document",
@@ -111,8 +110,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Models\\EmployeesModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T01:36:03.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T01:36:03.245Z"
             },
             {
               "$type": "Document",
@@ -124,8 +122,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Controllers\\EmployeeController.cs",
               "ViewState": "AgIAAPUAAAAAAAAAAAAqwBkBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T01:33:30.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T01:33:30.108Z"
             },
             {
               "$type": "Document",
@@ -137,12 +134,11 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Views\\Employees\\Index.cshtml",
               "ViewState": "AgIAAEgAAAAAAAAAAADwv20AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-28T01:23:08.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T01:23:08.557Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\Views\\Shared\\_Layout.cshtml",
@@ -163,8 +159,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-28T03:25:29.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T03:25:29.131Z"
             },
             {
               "$type": "Document",
@@ -176,12 +171,11 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Controllers\\DepartmentsController.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAYwCsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T02:40:16.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T02:40:16.841Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "db.sql ",
               "DocumentMoniker": "C:\\Users\\ACER NITRO\\source\\technical-coding-test\\Aldesa Technical Coding Test\\Aldesa Technical Coding Test\\db.sql",
               "RelativeDocumentMoniker": "Aldesa Technical Coding Test\\db.sql",
@@ -201,8 +195,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T01:43:57.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T01:43:57.138Z"
             },
             {
               "$type": "Document",
@@ -214,8 +207,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Models\\DepartmentsModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T01:36:17.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T01:36:17.083Z"
             },
             {
               "$type": "Document",
@@ -227,8 +219,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T02:28:45.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T02:28:45.372Z"
             },
             {
               "$type": "Document",
@@ -240,8 +231,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-02T23:52:09.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T23:52:09.983Z"
             },
             {
               "$type": "Document",
@@ -253,8 +243,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-02T23:52:14.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T23:52:14.415Z"
             },
             {
               "$type": "Document",
@@ -266,8 +255,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-28T01:57:58.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T01:57:58.2Z"
             },
             {
               "$type": "Document",
@@ -279,8 +267,7 @@
               "RelativeToolTip": "Aldesa Technical Coding Test\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-02T22:55:59.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T22:55:59.155Z"
             },
             {
               "$type": "Document",
