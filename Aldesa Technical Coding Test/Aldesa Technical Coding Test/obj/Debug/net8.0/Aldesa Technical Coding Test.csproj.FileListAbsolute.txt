@@ -566,7 +566,6 @@ C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Al
 C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\Aldesa T.10FE5F1D.Up2Date
 C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\Aldesa Technical Coding Test.dll
 C:\Users\ACER NITRO\source\technical-coding-test\Aldesa Technical Coding Test\Aldesa Technical Coding Test\obj\Debug\net8.0\refint\Aldesa Technical Coding Test.dll

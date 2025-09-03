@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aldesa Technical Coding Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+828a6c1310088d4eb9f737ad5a5172ff0caba4ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+603d293f7e92f8b8bfa7bd80e0730f726f96e5af")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aldesa Technical Coding Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aldesa Technical Coding Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
